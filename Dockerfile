@@ -17,4 +17,6 @@ RUN a2ensite saludador
 RUN a2enmod rewrite
 RUN a2enmod status
 
+RUN pecl install redis && docker-php-ext-enable redis  
+
 
