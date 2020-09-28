@@ -10,7 +10,7 @@ WORKDIR /app
 #copiamos el vhost
 COPY $PWD/saludador.conf /etc/apache2/sites-available/saludador.conf
 COPY $PWD/status.conf /etc/apache2/mods-available/status.conf
-COPY saludador.php /app
+
 
 RUN a2dissite 000-default
 RUN a2ensite saludador
@@ -19,4 +19,6 @@ RUN a2enmod status
 
 RUN pecl install redis && docker-php-ext-enable redis  
 
+ENV DEBUG_HEADERS 1
 
+COPY saludador.php /app
