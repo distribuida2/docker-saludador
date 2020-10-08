@@ -12,7 +12,7 @@ Corremos el comando de abajo para construir la imágen y el -t indica que tag le
 
 Una vez que la imágen ya está construida, instanciamos un container de esa imágen.
 
-`docker run -v $PWD:/app -p 80:80 --name saludador saludador:0.1:latest`
+`docker run -p 80:80 --name saludador saludador:0.1`
 
 #### Preguntas
 
