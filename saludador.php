@@ -1,6 +1,11 @@
 <?php
     ini_set('session.save_handler', 'redis');
-    ini_set('session.save_path', "tcp://redis:6379");
+    
+    $redis_url = getenv("REDIS_URL");
+    $redis_url = isset($redis_url) ? getenv("REDIS_URL") : "tcp://redis:6379";
+
+    ini_set('session.save_path', $redis_url);
+    
     session_start();
 
     $ip = $_SERVER['SERVER_ADDR'];

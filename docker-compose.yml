@@ -5,13 +5,14 @@ services:
     scale: 2
     environment:
       - DEBUG_HEADERS=0
+      - REDIS_URL=tcp://redis:6379
     depends_on:
       - redis
 
   redis:
     image: redis:6.0
     ports:
-        - 6379:6379
+      - 6379:6379
     volumes:
         - redis-data:/data
     
