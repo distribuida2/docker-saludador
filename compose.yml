@@ -1,6 +1,5 @@
-version: "2.2"
 services:
-  saludador:
+  webapp:
     build: .
     scale: 2
     environment:
@@ -16,14 +15,14 @@ services:
     volumes:
         - redis-data:/data
     
-  nginx-lb:
+  lb:
     image: nginx:1.14.2
     volumes:
         - ./lb-nginx.conf:/etc/nginx/nginx.conf:ro
     ports:
         - 8001:80
     links:
-        - saludador
+        - webapp
 volumes:
     redis-data:
            
