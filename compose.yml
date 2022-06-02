@@ -1,7 +1,9 @@
 services:
   webapp:
     build: .
-    scale: 2
+    deploy:
+      mode: replicated
+      replicas: 2
     environment:
       - DEBUG_HEADERS=0
       - REDIS_URL=tcp://redis:6379
